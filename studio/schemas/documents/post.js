@@ -9,13 +9,13 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Title',
-      description: 'Titles should be catchy, descriptive, and not too long'
+      validation: Rule => Rule.required().min(10).max(80)
     },
     {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
-      description: 'Some frontends will require a slug to be set to be able to show the post',
+      description: 'Ve většině případů stačí kliknout na generate 😎',
       options: {
         source: 'title',
         maxLength: 96
@@ -28,37 +28,80 @@ export default {
       description: 'This can be used to schedule post for publishing'
     },
     {
-      name: 'mainImage',
-      type: 'mainImage',
-      title: 'Main image'
+      name: 'studie',
+      type: 'string',
+      title: 'Studie'
     },
     {
-      name: 'excerpt',
-      type: 'excerptPortableText',
-      title: 'Excerpt',
-      description:
-        'This ends up on summary pages, on Google, when people share your post in social media.'
+      name: 'navrh',
+      type: 'string',
+      title: 'Návrh'
     },
     {
-      name: 'authors',
-      title: 'Authors',
-      type: 'array',
-      of: [
+      name: 'spoluprace',
+      type: 'string',
+      title: 'Spolupráce na studii'
+    },
+    {
+      name: 'lokace',
+      type: 'string',
+      title: 'Lokace'
+    },
+    {
+      name: 'investor',
+      type: 'string',
+      title: 'Investor'
+    },
+    {
+      name: 'prostor',
+      type: 'string',
+      title: 'Celkový obestavěný prostor'
+    },
+    {
+      name: 'rok',
+      type: 'date',
+      title: 'Rok',
+      options: {
+        dateFormat: 'yyyy',
+        calendarTodayLabel: 'Today'
+      }
+    },
+    {
+      name: 'vizualizace',
+      type: 'string',
+      title: 'Vizualizace'
+    },
+    {
+      name: 'foto',
+      type: 'string',
+      title: 'Fotografie'
+    },
+    {
+      name: 'oceneni',
+      type: 'string',
+      title: 'Ocenění'
+    },
+    {
+      title: 'Poster',
+      name: 'poster',
+      type: 'image',
+      options: {
+        hotspot: true // <-- Defaults to false
+      },
+      fields: [
         {
-          type: 'authorReference'
-        }
-      ]
-    },
-    {
-      name: 'categories',
-      type: 'array',
-      title: 'Categories',
-      of: [
-        {
-          type: 'reference',
-          to: {
-            type: 'category'
+          name: 'caption',
+          type: 'string',
+          title: 'Caption',
+          options: {
+            isHighlighted: true // <-- make this field easily accessible
           }
+        },
+        {
+          // Editing this field will be hidden behind an "Edit"-button
+          name: 'attribution',
+          type: 'string',
+          title: 'Attribution',
         }
       ]
     },

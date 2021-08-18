@@ -47,6 +47,15 @@
 </svelte:head>
 
 <h1>{post.title}</h1>
+{#if post.studie} <p>{post.studie}</p> {/if}
+{#if post.navrh} <p>{post.navrh}</p> {/if}
+{#if post.spoluprace} <p>{post.spoluprace}</p> {/if}
+{#if post.investor} <p>{post.investor}</p> {/if}
+{#if post.prostor} <p>{post.prostor}</p> {/if}
+{#if post.rok} <p>{post.rok}</p> {/if}
+{#if post.vizualizace} <p>{post.vizualizace}</p> {/if}
+{#if post.foto} <p>{post.foto}</p> {/if}
+{#if post.oceneni} <p>{post.oceneni}</p> {/if}
 
 <div class="content">
   <BlockContent blocks={post.body} {serializers} />
