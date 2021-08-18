@@ -3,7 +3,7 @@ import {format} from 'date-fns'
 export default {
   name: 'post',
   type: 'document',
-  title: 'Blog Post',
+  title: 'Projekt',
   fields: [
     {
       name: 'title',
@@ -23,9 +23,14 @@ export default {
     },
     {
       name: 'publishedAt',
-      type: 'datetime',
+      type: 'date',
       title: 'Published at',
       description: 'This can be used to schedule post for publishing'
+    },
+    {
+      name: 'mainImage',
+      type: 'mainImage',
+      title: 'Úvodní foto'
     },
     {
       name: 'studie',
@@ -80,30 +85,6 @@ export default {
       name: 'oceneni',
       type: 'string',
       title: 'Ocenění'
-    },
-    {
-      title: 'Poster',
-      name: 'poster',
-      type: 'image',
-      options: {
-        hotspot: true // <-- Defaults to false
-      },
-      fields: [
-        {
-          name: 'caption',
-          type: 'string',
-          title: 'Caption',
-          options: {
-            isHighlighted: true // <-- make this field easily accessible
-          }
-        },
-        {
-          // Editing this field will be hidden behind an "Edit"-button
-          name: 'attribution',
-          type: 'string',
-          title: 'Attribution',
-        }
-      ]
     },
     {
       name: 'body',

@@ -1,6 +1,6 @@
 <script>
-  export let url;
-  export let alt;
+
+  export let source;
+
 </script>
 
-<img src={url} {alt} />
