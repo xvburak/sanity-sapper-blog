@@ -15,6 +15,6 @@
 
 <Nav {segment}/>
 
-<main>
+<main class="p-4">
 	<slot></slot>
 </main>

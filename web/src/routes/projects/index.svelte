@@ -18,16 +18,18 @@
 </script>
 
 <script>
-    import myConfiguredSanityClient from '../../sanityClient'
-    import imageUrlBuilder from '@sanity/image-url'
+  import myConfiguredSanityClient from '../../sanityClient'
+  import imageUrlBuilder from '@sanity/image-url'
+import Author from '../../components/Author.svelte';
 
-    const builder = imageUrlBuilder(myConfiguredSanityClient)
+  const builder = imageUrlBuilder(myConfiguredSanityClient)
 
   function urlFor(source) {
     return builder.image(source)
   }
 
   export let posts;
+  // console.log(posts)
 
 </script>
 
@@ -35,21 +37,23 @@
   <title>Projekty</title>
 </svelte:head>
 
-<ul class="flex flex-wrap">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6">
   {#each posts as post}
-
+  {#if post.mainImage.asset}
 		<!-- we're using the non-standard `rel=prefetch` attribute to
 				tell Sapper to load the data for the page as soon as
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
-		<li class="md:w-1/2 lg:w-1/3">
+		<div class="">
       <a rel='prefetch' href='projects/{post.slug.current}'>
       <div>
-        <img src={urlFor(post.mainImage).url()}
-/>
-        <h2> {post.title} </h2>
+        <img class="w-full" src={urlFor(post.mainImage).width(1000).height(600).url()} alt="{post.mainImage.alt}"/>
+        <div class="pt-4 pb-6">
+          <h2> {post.title} </h2>
+        </div>
       </div>
       </a>
-    </li>
-	{/each}
-</ul>
+    </div>
+	{/if}
+  {/each}
+  </div>
