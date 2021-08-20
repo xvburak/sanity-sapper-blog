@@ -19,8 +19,7 @@
 
 <script>
   import myConfiguredSanityClient from '../../sanityClient'
-  import imageUrlBuilder from '@sanity/image-url'
-import Author from '../../components/Author.svelte';
+  import imageUrlBuilder from '@sanity/image-url';
 
   const builder = imageUrlBuilder(myConfiguredSanityClient)
 
@@ -31,24 +30,43 @@ import Author from '../../components/Author.svelte';
   export let posts;
   // console.log(posts)
 
+  let yes = true;
+
 </script>
 
 <svelte:head>
   <title>Projekty</title>
 </svelte:head>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6">
+<div class="flex justify-end uppercase mb-4">
+  <label>
+    <input
+      class="cursor-pointer form-tick appearance-none bg-white bg-check h-3 w-3 border border-black rounded-full checked:bg-black checked:border-transparent focus:outline-none"
+      type=radio bind:group={yes} value={true}>
+    galerie
+  </label>
+  <label class="ml-4">
+    <input
+      class="cursor-pointer form-tick appearance-none bg-white bg-check h-3 w-3 border border-black rounded-full checked:bg-black checked:border-transparent focus:outline-none"
+      type=radio bind:group={yes} value={false}>
+    index
+  </label>
+</div>
+
+
+{#if yes}
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
   {#each posts as post}
   {#if post.mainImage.asset}
 		<!-- we're using the non-standard `rel=prefetch` attribute to
 				tell Sapper to load the data for the page as soon as
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
-		<div class="">
+		<div class="hover:underline">
       <a rel='prefetch' href='projects/{post.slug.current}'>
       <div>
-        <img class="w-full" src={urlFor(post.mainImage).width(1000).height(600).url()} alt="{post.mainImage.alt}"/>
-        <div class="pt-4 pb-6">
+        <img class="w-full" src={urlFor(post.mainImage).width(600).height(300).url()} alt="{post.mainImage.alt}"/>
+        <div class="pt-4 pb-4">
           <h2> {post.title} </h2>
         </div>
       </div>
@@ -57,3 +75,8 @@ import Author from '../../components/Author.svelte';
 	{/if}
   {/each}
   </div>
+{:else}
+  {#each posts as post}
+    <h2> {post.title} </h2>
+  {/each}
+{/if}

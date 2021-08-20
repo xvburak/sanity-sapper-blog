@@ -15,6 +15,6 @@
 
 <Nav {segment}/>
 
-<main class="p-4">
+<main class="max-w-screen-2xl mx-auto px-4 bg-green-200">
 	<slot></slot>
 </main>
