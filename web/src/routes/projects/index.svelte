@@ -39,13 +39,13 @@
 </svelte:head>
 
 <div class="flex justify-end uppercase mb-4">
-  <label>
+  <label class="cursor-pointer">
     <input
-      class="cursor-pointer form-tick appearance-none bg-white bg-check h-3 w-3 border border-black rounded-full checked:bg-black checked:border-transparent focus:outline-none"
+      class="form-tick appearance-none bg-white bg-check h-3 w-3 border border-black rounded-full checked:bg-black checked:border-transparent focus:outline-none"
       type=radio bind:group={yes} value={true}>
     galerie
   </label>
-  <label class="ml-4">
+  <label class="ml-4 cursor-pointer">
     <input
       class="cursor-pointer form-tick appearance-none bg-white bg-check h-3 w-3 border border-black rounded-full checked:bg-black checked:border-transparent focus:outline-none"
       type=radio bind:group={yes} value={false}>
@@ -65,7 +65,7 @@
 		<div class="hover:underline">
       <a rel='prefetch' href='projects/{post.slug.current}'>
       <div>
-        <img class="w-full" src={urlFor(post.mainImage).width(600).height(300).url()} alt="{post.mainImage.alt}"/>
+        <img class="w-full" src={urlFor(post.mainImage).width(600).height(400).url()} alt="{post.mainImage.alt}"/>
         <div class="pt-4 pb-4">
           <h2> {post.title} </h2>
         </div>
