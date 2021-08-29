@@ -15,6 +15,8 @@
     }
   };
 
+
+
 </script>
 
 <script>
@@ -30,8 +32,8 @@
 
 
   export let posts;
-  console.log(posts)
-
+  console.log(posts);
+  
   let yes = true;
 
 </script>

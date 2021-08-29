@@ -13,3 +13,7 @@ h3 {
 p {
     @apply text-2xl mb-8;
 }
+
+img {
+    min-height: 100px;
+}

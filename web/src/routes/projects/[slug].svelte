@@ -32,10 +32,17 @@
   }
 
   export let post;
+  let imgs = "";
 
-  let imgs = post.gallery.images;
+  let gallery = post.gallery;
+  // let imgs = post.gallery.images;
 
-  console.log(imgs);
+  if (typeof gallery !== 'undefined'){
+    imgs = post.gallery.images;
+  } else {
+    let imgs = false;
+  }
+ 
 
 </script>
 
@@ -43,12 +50,12 @@
   <title>{post.title}</title>
 </svelte:head>
 
-<div class="sm:flex">
+<div class="md:flex">
 
-<div class="w-full bg-yellow-200 sm:w-1/2 sm:mr-4 md:w-1/3  md:mr-4">
+  <div class="w-full md:sticky top-4 md:self-start md:w-1/3  md:mr-4">
 
-<h3>{post.title}</h3>
-{#if post.description} <p>{post.description}</p> {/if}
+    <h3 class="">{post.title}</h3>
+    {#if post.description} <p>{post.description}</p> {/if}
 
 {#if post.studie} 
 <h3>Studie</h3>
@@ -101,16 +108,20 @@
 <p>{post.oceneni}</p>
 {/if}
 
+<button> Next post </button>
+
 </div>
 
-<div class="content w-full sm:w-1/2 md:w-2/3 bg-green-200">
-  <!-- <BlockContent blocks={post.body} {serializers} /> -->
-  <!-- {#each post.gallery as image}
-    <img class="w-full" src={urlFor(image.mainImage).width(600).height(400).url()} alt="{post.mainImage.alt}"/>
-   -->
-  {#each imgs as img}
-  <img class="w-full mb-4" src={urlFor(img).url()} alt="{img.alt}"/>
-  {/each}
+<div class="content w-full md:w-2/3 ">
+
+  <img class="w-full mb-4" loading="eager" src={urlFor(post.mainImage).width(600).height(400).url()} alt="{post.mainImage.alt}"/>
+
+  {#if imgs}
+    {#each imgs as img}
+      <img class="w-full mb-4" loading="lazy" src={urlFor(img).width(600).url()} alt="{img.alt}"/>
+    {/each}
+
+  {/if}
 </div>
 
 </div>
