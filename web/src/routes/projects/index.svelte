@@ -32,8 +32,7 @@
 
 
   export let posts;
-  console.log(posts);
-  
+
   let yes = true;
 
 </script>

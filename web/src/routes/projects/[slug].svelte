@@ -32,6 +32,7 @@
   }
 
   export let post;
+  export let posts;
   let imgs = "";
 
   let gallery = post.gallery;
@@ -108,7 +109,10 @@
 <p>{post.oceneni}</p>
 {/if}
 
-<button> Next post </button>
+
+<!-- <a rel='prefetch' href='projects/{posts[4].slug.current}'> předchozí projekt ⬅️</a>
+<a rel='prefetch' href='projects'> další projekt ➡</a> -->
+
 
 </div>
 
