@@ -8,8 +8,13 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title',
+      title: 'Jméno',
       validation: Rule => Rule.required().min(10).max(80)
+    },
+    {
+      name: 'description',
+      type: 'string',
+      title: 'Popis'
     },
     {
       name: 'slug',
@@ -24,8 +29,10 @@ export default {
     {
       name: 'publishedAt',
       type: 'date',
-      title: 'Published at',
-      description: 'This can be used to schedule post for publishing'
+      title: 'Zveřejnit',
+      options: {
+        calendarTodayLabel: 'Today'
+      }
     },
     {
       name: 'mainImage',
@@ -67,7 +74,7 @@ export default {
       type: 'date',
       title: 'Rok',
       options: {
-        dateFormat: 'yyyy',
+        dateFormat: 'YYYY',
         calendarTodayLabel: 'Today'
       }
     },
@@ -87,11 +94,77 @@ export default {
       title: 'Ocenění'
     },
     {
-      name: 'body',
-      type: 'bodyPortableText',
-      title: 'Body'
-    }
+      name: 'gallery',
+      type: 'object',
+      title: 'Galerie',
+     
+      fields: [
+        {
+          name: 'images',
+          type: 'array',
+          title: 'Images',
+          of: [
+            {
+              name: 'image',
+              type: 'image', 
+              title: 'Image',
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alternative text',
+                },
+              ],
+            },
+          ],
+          options: {
+            layout: 'grid'
+          },
+        },
+        {
+          name: 'display',
+          type: 'string',
+          title: 'Display as',
+          description: 'How should we display these images?',
+          options: {
+            list: [
+              { title: 'Stacked on top of eachother', value: 'stacked' },
+              { title: 'In-line', value: 'inline' },
+              { title: 'Carousel', value: 'carousel' },
+            ],
+            layout: 'radio', // <-- defaults to 'dropdown'
+          },
+        },
+        {
+          name: 'zoom',
+          type: 'boolean',
+          title: 'Zoom enabled',
+          description: 'Should we enable zooming of images?',
+        },
+      ],
+      preview: {
+        select: {
+          images: 'images',
+          image: 'images.0',
+        },
+        prepare(selection) {
+          const { images, image } = selection;
+
+        return {
+            title: `Gallery block of ${Object.keys(images).length} images`,
+            subtitle: `Alt text: ${image.alt}`,
+            media: image,
+          };
+        },
+      },
+    },
   ],
+  initialValue: {
+    isHighlighted: false
+  },
   orderings: [
     {
       name: 'publishingDateAsc',
@@ -138,5 +211,9 @@ export default {
         subtitle: publishedAt ? path : 'Missing publishing date'
       }
     }
-  }
+  },
+  initialValue: () => ({
+    isHighlighted: false,
+    releaseDate: (new Date()).toISOString()
+  })
 }

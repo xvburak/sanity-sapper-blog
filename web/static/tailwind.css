@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body {
+    font-size: 14px;
+}
+
+h3 {
+    @apply uppercase text-sm tracking-widest mb-4;
+}
+
+p {
+    @apply text-2xl mb-8;
+}

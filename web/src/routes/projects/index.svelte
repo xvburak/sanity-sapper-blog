@@ -27,8 +27,10 @@
     return builder.image(source)
   }
 
+
+
   export let posts;
-  // console.log(posts)
+  console.log(posts)
 
   let yes = true;
 
@@ -67,7 +69,7 @@
       <div>
         <img class="w-full" src={urlFor(post.mainImage).width(600).height(400).url()} alt="{post.mainImage.alt}"/>
         <div class="pt-4 pb-4">
-          <h2> {post.title} </h2>
+          <h3> {post.title} </h3>
         </div>
       </div>
       </a>
@@ -77,6 +79,6 @@
   </div>
 {:else}
   {#each posts as post}
-    <h2> {post.title} </h2>
+    <h3> {post.title} </h3>
   {/each}
 {/if}
