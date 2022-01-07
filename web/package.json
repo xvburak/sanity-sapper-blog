@@ -11,7 +11,7 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "dev:tailwindcss": "postcss static/tailwind.css -o static/main.css -w",
+    "dev:tailwindcss": "TAILWIND_MODE=WATCH postcss static/tailwind.css -o static/main.css --watch",
     "build:tailwindcss": "NODE_ENV=production postcss static/tailwind.css -o static/main.css"
   },
   "dependencies": {
@@ -36,8 +36,10 @@
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-replace": "^2.2.0",
     "@sanity/block-content-to-hyperscript": "^2.0.10",
+    "autoprefixer": "^10.4.1",
     "npm-run-all": "^4.1.5",
-    "postcss-cli": "^8.3.1",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.0.2",
     "rollup": "^2.2.0",
     "rollup-plugin-babel": "^4.0.2",
     "rollup-plugin-svelte": "^5.1.1",
@@ -45,6 +47,6 @@
     "sapper": "^0.27.11",
     "svelte": "^3.20.1",
     "svelte-loader": "^2.13.6",
-    "tailwindcss": "^2.2.7"
+    "tailwindcss": "^3.0.11"
   }
 }

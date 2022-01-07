@@ -58,19 +58,15 @@
 
 
 {#if yes}
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
   {#each posts as post}
   {#if post.mainImage.asset}
-		<!-- we're using the non-standard `rel=prefetch` attribute to
-				tell Sapper to load the data for the page as soon as
-				the user hovers over the link or taps it, instead of
-				waiting for the 'click' event -->
-		<div class="hover:underline">
+		<div class="">
       <a rel='prefetch' href='projects/{post.slug.current}'>
       <div>
         <img class="w-full" src={urlFor(post.mainImage).width(600).height(400).url()} alt="{post.mainImage.alt}"/>
         <div class="pt-4 pb-4">
-          <h3> {post.title} </h3>
+          <h3> {post.title}</h3>
         </div>
       </div>
       </a>
