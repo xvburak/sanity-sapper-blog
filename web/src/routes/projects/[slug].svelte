@@ -32,7 +32,7 @@
   }
 
   export let post;
-  export let posts;
+
   let imgs = "";
 
   let gallery = post.gallery;
