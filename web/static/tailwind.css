@@ -6,8 +6,25 @@ html, body {
     font-size: 14px;
 }
 
+h3 {
+    @apply uppercase text-xs tracking-widest text-gray-400
+}
+
 img {
     min-height: 100px;
+}
+
+.about {
+    @apply mb-8
+}
+
+
+.about h3 {
+    @apply mb-4
+}
+
+.table-cell {
+    @apply pb-4
 }
 
 /* sm */
@@ -17,22 +34,26 @@ img {
 
 /* md */
 @media (min-width: 768px) {
+    html, body {
+        font-size: 16px;
+    }
 
 }
 
 /* lg */
 @media (min-width: 1024px) {
-    html, body {
-        font-size: 18px;
-    }
+    
 }
 
 /* xl */
 @media (min-width: 1280px) {
-
+    html, body {
+        font-size: 18px;
+    }
 }
 
 /* 2xl */
 @media (min-width: 1536px) {
 
 }
+

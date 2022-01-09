@@ -53,60 +53,80 @@
 
 <div class="md:flex">
 
-  <div class="w-full md:sticky top-4 md:self-start md:w-1/3  md:mr-4">
-
+<div class="w-full md:sticky top-4 md:self-start md:w-1/3  md:mr-4">
+  <div class="mb-4">
     <h3 class="">{post.title}</h3>
     {#if post.description} <p>{post.description}</p> {/if}
-
+  </div>
 {#if post.studie} 
-<h3>Studie</h3>
-<p>{post.studie}</p> 
+<div class="mb-4">
+  <h3>Studie</h3>
+  <p>{post.studie}</p>
+</div> 
 {/if}
 
 {#if post.navrh}
-<h3>Návrh</h3>
-<p>{post.navrh}</p>
+<div class="mb-4">
+  <h3>Návrh</h3>
+  <p>{post.navrh}</p>
+</div>
 {/if}
 
 {#if post.spoluprace}
-<h3>Spolupráce</h3>
-<p>{post.spoluprace}</p> 
+<div class="mb-4">
+  <h3>Spolupráce</h3>
+  <p>{post.spoluprace}</p> 
+</div>
 {/if}
 
 {#if post.lokace}
-<h3>Místo stavby</h3>
-<p>{post.lokace}</p> 
+<div class="mb-4">
+  <h3>Místo stavby</h3>
+  <p>{post.lokace}</p> 
+</div>
 {/if}
 
 {#if post.investor}
-<h3>Investor</h3>
-<p>{post.investor}</p>
+<div class="mb-4">
+  <h3>Investor</h3>
+  <p>{post.investor}</p>
+</div>
 {/if}
 
 {#if post.rok}
-<h3>Rok</h3>
-<p>{post.rok.substring(0,4)}</p>
+<div class="mb-4">
+  <h3>Rok</h3>
+  <p>{post.rok.substring(0,4)}</p>
+</div>
 {/if}
 
 
 {#if post.prostor}
-<h3>Celková obestavěný prostor</h3>
-<p>{post.prostor}</p>
+<div class="mb-4">
+  <h3>Celková obestavěný prostor</h3>
+  <p>{post.prostor}</p>
+</div>
 {/if}
 
 {#if post.vizualizace}
-<h3>Vizualizace</h3>
-<p>{post.vizualizace}</p>
+<div class="mb-4">
+  <h3>Vizualizace</h3>
+  <p>{post.vizualizace}</p>
+</div>
 {/if}
 
 {#if post.foto}
-<h3>Fotografie</h3>
-<p>{post.foto}</p>
+<div class="mb-4">
+  <h3>Fotografie</h3>
+  <p>{post.foto}</p>
+</div>
 {/if}
 
 {#if post.oceneni}
-<h3>Ocenění</h3>
-<p>{post.oceneni}</p>
+<div class="mb-4">
+  <h3>Ocenění</h3>
+  <p>{post.oceneni}</p>
+</div>
 {/if}
 
 

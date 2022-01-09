@@ -66,7 +66,7 @@
       <div>
         <img class="w-full" src={urlFor(post.mainImage).width(600).height(400).url()} alt="{post.mainImage.alt}"/>
         <div class="pt-4 pb-4">
-          <h3> {post.title}</h3>
+          <h2>{post.title}</h2>
         </div>
       </div>
       </a>
